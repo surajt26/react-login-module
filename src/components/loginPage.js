@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import axios from 'axios';
 
 const LoginPage = () => {
 
@@ -13,14 +14,33 @@ const LoginPage = () => {
             ...preValue,
             [name]: value
         }))
-    }
+    };
+
+    // loginFormHandle for handle loginForm
+    const loginFormHandle = async (event) => {
+        // stop default behavior
+        event.preventDefault();
+        console.log(loginForm);
+        // post the data by api
+        await axios.post(`https://reqres.in/api/login`, loginForm)
+            .then(response => {
+                console.log(response.data.token);
+                // set token in localStorage
+                localStorage.setItem('token',`${response.data.token}`);
+            })
+            .catch(error => {
+                console.log(error);
+                alert('Invalid Email or Password, Try again');
+            });
+        setLoginForm({});
+    };
 
     return (<>
-        <form name='loginForm'>
-            <label htmlFor='EmailId'>Email ID</label><br />
+        <form name='loginForm' onSubmit={loginFormHandle}>
+            <label htmlFor='Email'>Email</label><br />
             <input
                 type='email'
-                id='EmailId'
+                id='Email'
                 name='email'
                 value={loginForm.email || ''}
                 onChange={getInputHandle}
@@ -41,6 +61,6 @@ const LoginPage = () => {
             />
         </form>
     </>)
-}
+};
 
-export default LoginPage
+export default LoginPage;
