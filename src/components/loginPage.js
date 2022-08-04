@@ -31,7 +31,7 @@ const LoginPage = () => {
                 // set token in localStorage
                 localStorage.setItem('token',`${response.data.token}`);
                 // navigate to HomePage
-                navigate('/HomePage');
+                navigate('/admin');
             })
             .catch(error => {
                 console.log(error);
