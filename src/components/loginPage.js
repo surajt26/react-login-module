@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 const LoginPage = () => {
+
+    const navigate = useNavigate();
 
     // useState for store loginForm inputs
     const [loginForm, setLoginForm] = useState({});
@@ -27,12 +30,14 @@ const LoginPage = () => {
                 console.log(response.data.token);
                 // set token in localStorage
                 localStorage.setItem('token',`${response.data.token}`);
+                // navigate to HomePage
+                navigate('/HomePage');
             })
             .catch(error => {
                 console.log(error);
                 alert('Invalid Email or Password, Try again');
             });
-        setLoginForm({});
+        // setLoginForm({});
     };
 
     return (<>
