@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 
 const LoginPage = () => {
 
+    // useState for check is user login
+    const [checkLogin, setCheckLogin] = useState(false);
+    // get the token from localStorage
+    const token = localStorage.getItem('token');
     const navigate = useNavigate();
+
+    // check login system
+    useEffect(() => {
+        !token ? setCheckLogin(true) : navigate('/admin');
+    }, [token, navigate]);
 
     // useState for store loginForm inputs
     const [loginForm, setLoginForm] = useState({});
@@ -29,7 +38,7 @@ const LoginPage = () => {
             .then(response => {
                 console.log(response.data.token);
                 // set token in localStorage
-                localStorage.setItem('token',`${response.data.token}`);
+                localStorage.setItem('token', `${response.data.token}`);
                 // navigate to HomePage
                 navigate('/admin');
             })
@@ -41,30 +50,34 @@ const LoginPage = () => {
     };
 
     return (<>
-        <form name='loginForm' onSubmit={loginFormHandle}>
-            <label htmlFor='Email'>Email</label><br />
-            <input
-                type='email'
-                id='Email'
-                name='email'
-                value={loginForm.email || ''}
-                onChange={getInputHandle}
-                required
-            /><br />
-            <label htmlFor='Password'>Password</label><br />
-            <input
-                type='password'
-                id='Password'
-                name='password'
-                value={loginForm.password || ''}
-                onChange={getInputHandle}
-                required
-            /><br />
-            <input
-                type='submit'
-                value='Login'
-            />
-        </form>
+        {
+            checkLogin ? <>
+                <form name='loginForm' onSubmit={loginFormHandle}>
+                    <label htmlFor='Email'>Email</label><br />
+                    <input
+                        type='email'
+                        id='Email'
+                        name='email'
+                        value={loginForm.email || ''}
+                        onChange={getInputHandle}
+                        required
+                    /><br />
+                    <label htmlFor='Password'>Password</label><br />
+                    <input
+                        type='password'
+                        id='Password'
+                        name='password'
+                        value={loginForm.password || ''}
+                        onChange={getInputHandle}
+                        required
+                    /><br />
+                    <input
+                        type='submit'
+                        value='Login'
+                    />
+                </form>
+            </> : null
+        }
     </>)
 };
 
