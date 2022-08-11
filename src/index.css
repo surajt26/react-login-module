@@ -1,14 +1,54 @@
-.edit-icon,
-.delete-icon {
-  display: none;
+.test {
+  border: 1px solid red;
 }
 
-.change-edit-icon:hover > .edit-outlined-icon,
-.change-delete-icon:hover > .delete-outline-icon {
-  display: none;
+.wishText, .formLabel, .agreeText {
+  font-size: 0.9rem;
 }
 
-.change-edit-icon:hover > .edit-icon,
-.change-delete-icon:hover > .delete-icon {
-  display: inline-block;
+.wishText {
+  color: #10173A;
+}
+
+.form-group input {
+  color: #182CA1;
+}
+
+.form-group .form-control:focus {
+  color: #182CA1;
+  border-color: #6E7289;
+  box-shadow: none;
+}
+
+.input-group-append span {
+  transition: 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#Password:focus + .input-group-append span {
+  border-color: #6E7289;
+}
+
+.agreeText span {
+  color:  #090E35;
+}
+
+.form-check input {
+  accent-color: #182CA1;
+}
+
+.form-group .submitBtn {
+  padding: 0.7rem 0;
+  border-radius: .5rem;
+  color: #182CA1;
+  background: #D1D4ED;
+  font-weight: bold;
+}
+
+.form-group .submitBtn:focus {
+  box-shadow: none;
+}
+
+.form-group .submitBtn:hover {
+  color: #ffffff;
+  background: #182CA1;
 }
