@@ -52,3 +52,27 @@
   color: #ffffff;
   background: #182CA1;
 }
+
+.header {
+  background-color: #182CA1;
+}
+
+.col-12 .logoutBtn {
+  color: #182CA1;
+  background: #D1D4ED;
+  font-weight: bold;
+}
+
+.col-12 .logoutBtn:hover {
+  color: #ffffff;
+  background-color: #3751e1;
+}
+
+.child {
+  width: 200px;
+  height: 200px;
+}
+
+.child > div {
+  width: 8.1rem;
+}
