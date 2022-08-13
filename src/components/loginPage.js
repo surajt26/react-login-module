@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Spinner from './Spinner';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 import Visibility from "@material-ui/icons/Visibility";
@@ -6,7 +7,7 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import logo from '../images/logo.png';
 
 const LoginPage = () => {
-    
+
     // useState for check is user login
     const [checkLogin, setCheckLogin] = useState(false);
     // useState for store loginForm inputs
@@ -134,7 +135,7 @@ const LoginPage = () => {
                         </div>
                     </div>
                 </div>
-            </> : null
+            </> : <Spinner />
         }
     </>)
 };

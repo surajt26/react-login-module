@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
+import Spinner from './Spinner';
 import axios from 'axios';
 
 const AdminPage = () => {
@@ -64,13 +65,13 @@ const AdminPage = () => {
                                             </div>
                                         )
                                     }
-                                </> : null
+                                </> : <Spinner />
                             }
                         </div>
                     </div>
                 </div>
             </div>
-        </> : null
+        </> : <Spinner />
     }</>)
 }
 
