@@ -2,6 +2,10 @@
   border: 1px solid red;
 }
 
+.spinner {
+  color: #182CA1;
+}
+
 .wishText, .formLabel, .agreeText {
   font-size: 0.9rem;
 }
