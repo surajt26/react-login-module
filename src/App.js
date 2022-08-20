@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router';
 import LoginProtected from './components/LoginProtected';
 import ProtectedRoute from './components/ProtectedRoute';
 import Spinner from './components/Spinner';
-// import IdleTimer from './components/IdleTimer';
+import IdleTimer from './components/IdleTimer';
 
 const LoginPage = lazy(() => import('./components/LoginPage'));
 const AdminPage = lazy(() => import('./components/AdminPage'));
@@ -26,7 +26,11 @@ function App() {
 
   return (<>
     {/* IdleTimer to manage auto logout system  */}
-    {/* <IdleTimer status={status} setStatus={setStatus} /> */}
+    <IdleTimer
+      loggedIn={status.loggedIn}
+      didLogout={status.didLogout}
+      setStatus={setStatus}
+    />
     <Routes>
 
       {/* Login Page */}

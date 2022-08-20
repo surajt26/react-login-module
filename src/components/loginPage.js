@@ -35,6 +35,7 @@ const LoginPage = ({setStatus}) => {
                 // set token in sessionStorage
                 sessionStorage.setItem('token', `${response.data.token}`);
                 // set status
+                sessionStorage.setItem('loggedIn','true');
                 setStatus({ loggedIn: true, didLogout: false });
             })
             .catch(error => {

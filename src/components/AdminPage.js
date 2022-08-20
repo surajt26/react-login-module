@@ -26,6 +26,7 @@ const AdminPage = ({ setStatus }) => {
     const logoutHandle = () => {
         sessionStorage.removeItem('token');
         // set status
+        sessionStorage.setItem('loggedIn','false');
         setStatus({ loggedIn: false, didLogout: true });
     }
     return (<>
