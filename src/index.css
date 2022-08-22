@@ -80,3 +80,29 @@
 .child > div {
   width: 8.1rem;
 }
+
+.errorHeader {
+  height: 4em;
+}
+
+.errorMessage {
+  font-size: .9em;
+}
+
+.errorLogoutBtn > button {
+  padding: 0.5rem 1.5rem;
+  border-radius: .3em;
+  border: none;
+  color: #182CA1;
+  background: #D1D4ED;
+  font-weight: bold;
+}
+
+.errorLogoutBtn > button:focus {
+  box-shadow: none;
+}
+
+.errorLogoutBtn > button:hover {
+  color: #ffffff;
+  background: #182CA1;
+}
