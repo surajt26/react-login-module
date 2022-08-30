@@ -1,11 +1,9 @@
-.test {
-  border: 1px solid red;
-}
-
+/* Spinner */
 .spinner {
   color: #182CA1;
 }
 
+/* LoginPage */
 .wishText, .formLabel, .agreeText {
   font-size: 0.9rem;
 }
@@ -57,6 +55,33 @@
   background: #182CA1;
 }
 
+.BetweenBtnText {
+  margin-top: 2rem;
+}
+
+.form-group .googleBtnLayer {
+  border-radius: 2px;
+  border: 1px solid #ccd2d8;
+}
+
+.form-group .googleBtnLayer:hover {
+  border-color: #6F7289;
+}
+
+/* GoogleLoginBtn */
+.form-group .googleBtn:hover > span {
+  color: #090E35;
+}
+
+.form-group .googleBtn:focus {
+  box-shadow: none;
+}
+
+.form-group .googleBtn div {
+  margin: .168rem 0;
+}
+
+/* AdminPage */
 .header {
   background-color: #182CA1;
 }
@@ -81,14 +106,6 @@
   width: 8.1rem;
 }
 
-.errorHeader {
-  height: 4em;
-}
-
-.errorMessage {
-  font-size: .9em;
-}
-
 .errorLogoutBtn > button {
   padding: 0.5rem 1.5rem;
   border-radius: .3em;
@@ -105,4 +122,14 @@
 .errorLogoutBtn > button:hover {
   color: #ffffff;
   background: #182CA1;
+}
+
+/* UserProfile */
+.userProfile p {
+  font-size: 0.8rem;
+}
+
+.userImg {
+  width: 3rem;
+  height: 3rem;
 }
