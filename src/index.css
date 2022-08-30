@@ -133,3 +133,12 @@
   width: 3rem;
   height: 3rem;
 }
+
+/* ErrorPage */
+.errorHeader {
+  height: 4em;
+}
+
+.errorMessage {
+  font-size: .9em;
+}
