@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import GoogleLoginBtn from './GoogleLoginBtn';
 import axios from 'axios';
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import logo from '../images/logo.png';
 
-const LoginPage = ({setStatus}) => {
+const LoginPage = ({ setStatus }) => {
 
-    console.log('loginPage');
+    const mountedRef = useRef(true);
+
     // useState for store loginForm inputs
     const [loginForm, setLoginForm] = useState({});
     // useState for password show/hide
@@ -14,8 +16,21 @@ const LoginPage = ({setStatus}) => {
     // useState for checkbox
     const [checked, setChecked] = useState(false)
 
+    // set user data field who would login
+    useEffect(() => {
+
+        sessionStorage.setItem("userName", "");
+        sessionStorage.setItem("userEmail", "");
+        sessionStorage.setItem("userImage", "");
+
+        return () => {
+            mountedRef.current = false
+        }
+    }, []);
+
     // getInputHandle for handle input onChange
     const getInputHandle = (event) => {
+
         // object destructuring
         const { name, value } = event.target;
         setLoginForm((preValue) => ({
@@ -26,23 +41,33 @@ const LoginPage = ({setStatus}) => {
 
     // loginFormHandle for handle loginForm
     const loginFormHandle = async (event) => {
+
         // stop default behavior
         event.preventDefault();
         // post the data by api
         await axios.post(`https://reqres.in/api/login`, loginForm)
-            .then(response => {
-                console.log(response.data.token);
+            .then(async (response) => {
+
+                // get logged in user details
+                await axios.get(`https://reqres.in/api/users/4`)
+                    .then((response) => {
+
+                        // set loggedIn user details
+                        sessionStorage.setItem("userName", `${response.data.data.first_name} ${response.data.data.last_name}`);
+                        sessionStorage.setItem("userEmail", `${response.data.data.email}`);
+                        sessionStorage.setItem("userImage", `${response.data.data.avatar}`);
+                    });
                 // set token in sessionStorage
                 sessionStorage.setItem('token', `${response.data.token}`);
                 // set status
-                sessionStorage.setItem('loggedIn','true');
-                setStatus({ loggedIn: true, didLogout: false });
+                sessionStorage.setItem('loggedIn', 'true');
+                await setStatus({ loggedIn: true, didLogout: false });
             })
-            .catch(error => {
-                console.log(error);
+            .catch(() => {
                 alert('Invalid Email or Password, Try again');
             });
         setLoginForm({});
+        setChecked(false);
     };
 
     return (<>
@@ -117,6 +142,13 @@ const LoginPage = ({setStatus}) => {
                         {/* submit button */}
                         <div className='form-group mt-4'>
                             <button className='btn btn-light btn-block submitBtn' type='submit'>Next</button>
+                        </div>
+                        <p className='text-center text-secondary BetweenBtnText'>OR</p>
+                        {/* google login section */}
+                        <div className='form-group mt-4'>
+                            <div className='googleBtnLayer'>
+                                <GoogleLoginBtn setStatus={setStatus} />
+                            </div>
                         </div>
                     </form>
                 </div>
