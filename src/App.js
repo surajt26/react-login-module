@@ -11,7 +11,6 @@ const ErrorPage = lazy(() => import('./components/ErrorPage'));
 
 function App() {
 
-  console.log('App');
   // Status useState for store user loggedIn and did user logout
   const [status, setStatus] = useState(() => {
 
@@ -22,7 +21,6 @@ function App() {
       return ({ loggedIn: true, didLogout: false })
     };
   });
-  console.log(status);
 
   return (<>
     {/* IdleTimer to manage auto logout system  */}
