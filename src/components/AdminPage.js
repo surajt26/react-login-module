@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import UserProfile from './UserProfile';
 import Spinner from './Spinner';
 import axios from 'axios';
 
 const AdminPage = ({ setStatus }) => {
 
-    console.log('adminPage');
     // useState for store users data
     const [users, setUsers] = useState();
     // get the token from sessionStorage
@@ -13,6 +13,7 @@ const AdminPage = ({ setStatus }) => {
     // check login system
     useEffect(() => {
 
+        // get users data from api
         axios.get(`https://reqres.in/api/users`, {
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -24,11 +25,18 @@ const AdminPage = ({ setStatus }) => {
 
     // logoutHandle
     const logoutHandle = () => {
+
+        // remove token
         sessionStorage.removeItem('token');
+        // remove loggedIn user data
+        sessionStorage.removeItem('userName');
+        sessionStorage.removeItem('userEmail');
+        sessionStorage.removeItem('userImage');
         // set status
-        sessionStorage.setItem('loggedIn','false');
+        sessionStorage.setItem('loggedIn', 'false');
         setStatus({ loggedIn: false, didLogout: true });
     }
+
     return (<>
         {/* main section */}
         <div className='container-fluid'>
@@ -39,6 +47,8 @@ const AdminPage = ({ setStatus }) => {
                     <button className='btn btn-sm float-right my-3 px-3 logoutBtn' onClick={logoutHandle}>Logout</button>
                 </div>
             </div>
+            {/* user profile section */}
+            <UserProfile />
             {/* users section */}
             <div className='row'>
                 <div className='col-12 col-lg-10 col-xl-8 mx-auto'>
