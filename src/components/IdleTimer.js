@@ -62,7 +62,7 @@ const IdleTimer = ({ loggedIn, didLogout, setStatus }) => {
                 sessionStorage.removeItem('token');
                 setStatus({ loggedIn: false, didLogout: true });
             }
-        }, 1000 * 600);
+        }, 1000 * 15);
     };
 
     return (<></>)
