@@ -57,7 +57,7 @@ const UserProfile = () => {
                             <p className='text-right m-0'>{loggedUser.email}</p>
                         </div>
                         {/* loggedIn user profile image */}
-                        <img className='rounded-circle userImg' src={loggedUser.image} alt='userPic' />
+                        <img className='rounded-circle userImg' src={loggedUser.image} referrerPolicy="no-referrer" alt='userPic' />
                     </div>
                 </div> : <Spinner />
         }
