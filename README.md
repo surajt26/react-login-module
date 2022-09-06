@@ -103,7 +103,7 @@
 </div>
 <br />
 
-<span style="color: blue">Note</span> - If anyone want to use google login feature so he/she has to put own google client id in React-Login-Module project. Due to security reasons I can't share my google client id to publicly.
+<span color="blue">Note</span> - If anyone want to use google login feature so he/she has to put own google client id in React-Login-Module project. Due to security reasons I can't share my google client id to publicly.
 <br />
 
 - AdminPage component contain UserProfile component, Logout button and users container and with the help of public API users information comes.
@@ -145,7 +145,7 @@
 <!------------------ Public API's ------------------>
 ## Public API's
 - Login Page
-    - Request for login uesr
+    - Request for login user
     - Request for logged in user information
         ```sh
         https://reqres.in/api/login
@@ -265,7 +265,9 @@ npm start
 
 <!------------------ Project Demo ------------------>
 ## Project Demo
-[![Watch the video](/images/React%20Login%20Module%20Cover.png)](https://youtu.be/BTifwIPhG6U)
+[![Watch the video](https://img.youtube.com/vi/BTifwIPhG6U/0.jpg)](https://youtu.be/BTifwIPhG6U)
+<br />
+[Click To Visit](https://youtu.be/BTifwIPhG6U)
 <br /><br />
 
 <!------------------ Maintainer ------------------>
