@@ -64,7 +64,6 @@
 - It build on React with React-Router, Axios, Google-Authentication, Session-Storage, Suspense and lazy.
 - Used Bootstrap and Material-UI to markup the project.
 <br />
-
 - This app has following components -
     - App
     - LoginPage
@@ -103,7 +102,7 @@
 </div>
 <br />
 
-<span style="color: blue">Note</span> - If anyone want to use google login feature so he/she has to put own google client id in React-Login-Module project. Due to security reasons I can't share my google client id to publicly.
+<span color="blue">Note</span> - If anyone want to use google login feature so he/she has to put own google client id in React-Login-Module project. Due to security reasons I can't share my google client id to publicly.
 <br />
 
 - AdminPage component contain UserProfile component, Logout button and users container and with the help of public API users information comes.
@@ -265,7 +264,9 @@ npm start
 
 <!------------------ Project Demo ------------------>
 ## Project Demo
-[![Watch the video](/images/React%20Login%20Module%20Cover.png)](https://youtu.be/BTifwIPhG6U)
+[![Watch the video](https://img.youtube.com/vi/BTifwIPhG6U/0.jpg)](https://youtu.be/BTifwIPhG6U)
+<br />
+[Click To Visit](https://youtu.be/BTifwIPhG6U)
 <br /><br />
 
 <!------------------ Maintainer ------------------>
